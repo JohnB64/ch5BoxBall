@@ -321,6 +321,13 @@ public class Canvas
         graphic.drawImage(oldImage, 0, 0, null);
         frame.pack();
     }
+    
+    public void drawRectangle(int width, int height, int xPos, int yPos) {
+     
+        graphic.drawRect(width, height, xPos, yPos);
+        canvas.repaint();
+        
+    }
 
     /**
      * Returns the size of the canvas.

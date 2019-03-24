@@ -1,4 +1,5 @@
-
+import java.awt.*;
+import java.awt.geom.*;
 /**
  * Creates a rectangle with balls inside that randomly bounce off the sides.
  *
@@ -8,26 +9,93 @@
 public class BoxBall
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private int width;
+    private int height;
+    private int xPos;
+    private int yPos;
+    
+    private static final int GRAVITY = 3;  
+    private int ballDegradation = 2;
+    private Ellipse2D.Double circle;
+    private Color color;
+    private int diameter;
+    private final int groundPosition;      
+    private Canvas canvas;
+    private int ySpeed = 1;
 
     /**
      * Constructor for objects of class BoxBall
+     * 
+     * 
      */
-    public BoxBall()
+    public BoxBall(int width, int height, int xPos, int yPos, int groundPos)
     {
-        // initialise instance variables
-        x = 0;
+        
+        groundPosition = groundPos;
+    }
+    /**
+     * Draws a rectangle with twenty balls inside.
+     * 
+     */
+    public void boxBounce(int numBalls) {
+        
+        
+        
+    }
+    
+    /**
+     * Draw this ball at its current position onto the canvas.
+     **/
+    public void draw()
+    {
+        canvas.setForegroundColor(color);
+        canvas.fillCircle(xPos, yPos, diameter);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+     * Erase this ball at its current position.
+     **/
+    public void erase()
     {
-        // put your code here
-        return x + y;
+        canvas.eraseCircle(xPos, yPos, diameter);
     }
+    
+    /**
+     * return the horizontal position of this ball
+     */
+    public int getXPos()
+    {
+        return xPos;
+    }
+
+    /**
+     * return the vertical position of this ball
+     */
+    public int getYPos()
+    {
+        return yPos;
+    }
+
+    /**
+     * Move this ball according to its position and speed and redraw.
+     **/
+    public void move()
+    {
+        // remove from canvas at the current position
+        erase();
+            
+        // compute new position
+        ySpeed += GRAVITY;
+        yPos += ySpeed;
+        xPos +=2;
+
+        // check if it has hit the ground
+        if(yPos >= (groundPosition - diameter) && ySpeed > 0) {
+            yPos = (int)(groundPosition - diameter);
+            ySpeed = -ySpeed + ballDegradation; 
+        }
+
+        // draw again at new position
+        draw();
+    } 
 }
