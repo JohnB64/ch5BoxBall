@@ -28,13 +28,14 @@ public class BoxBall
      * 
      * 
      */
-    public BoxBall(int width, int height, int xPos, int yPos, int groundPos)
+    public BoxBall(int width, int height, int xPos, int yPos, int diameter, Color colorOfBall
+    , Canvas canvas, int groundPos)
     {
         
         groundPosition = groundPos;
     }
     /**
-     * Draws a rectangle with twenty balls inside.
+     * Draws a rectangle with a certain number of balls inside.
      * 
      */
     public void boxBounce(int numBalls) {
