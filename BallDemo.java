@@ -109,8 +109,8 @@ public class BallDemo
         
         myCanvas.drawRectangle(width, height, xPos, yPos);
         for(int i = 0; i < numBalls; i++) {
-       // BoxBall boxball = new Boxball(xPos, yPos, Color.RED, width, height, myCanvas);
-      //  ball.add(boxBall);
+       // BoxBall boxball = new Boxball(xPos, yPos, width, height, myCanvas);
+       // ball.add(boxBall);
       //  boxBall.draw();
     }
     }

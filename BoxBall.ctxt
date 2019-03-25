@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=BoxBall
 comment0.text=\r\n\ Creates\ a\ rectangle\ with\ balls\ inside\ that\ randomly\ bounce\ off\ the\ sides.\r\n\r\n\ @author\ John\ Burkert\r\n\ @version\ March\ 24th\ 2019\r\n
-comment1.params=width\ height\ xPos\ yPos\ diameter\ colorOfBall\ canvas\ groundPos
-comment1.target=BoxBall(int,\ int,\ int,\ int,\ int,\ java.awt.Color,\ Canvas,\ int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n\ \r\n\ \r\n
+comment1.params=width\ height\ xPos\ yPos\ diameter\ colorOfBall\ canvas
+comment1.target=BoxBall(int,\ int,\ int,\ int,\ int,\ java.awt.Color,\ Canvas)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n\ @param\ height\ height\ of\ box\r\n\ @param\ width\ width\ of\ box\r\n\ @param\ color\ color\ of\ ball\r\n\ @param\ xPos\ the\ x-position\ of\ the\ ball\r\n\ @param\ yPos\ the\ y-position\ of\ the\ ball\r\n\ @param\ canvas\ the\ canvas\r\n\ @param\ diameter\ the\ size\ of\ the\ ball\r\n
 comment2.params=
 comment2.target=void\ draw()
 comment2.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n

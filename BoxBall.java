@@ -17,21 +17,40 @@ public class BoxBall
     private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
-    private int diameter;
-    private final int groundPosition;      
+    private int diameter;      
     private Canvas canvas;
-    private int ySpeed = 1;
+    private int ySpeed;
+    private int xSpeed;
 
     /**
      * Constructor for objects of class BoxBall
-     * 
-     * 
+     * @param height height of box
+     * @param width width of box
+     * @param color color of ball
+     * @param xPos the x-position of the ball
+     * @param yPos the y-position of the ball
+     * @param canvas the canvas
+     * @param diameter the size of the ball
      */
     public BoxBall(int width, int height, int xPos, int yPos, int diameter, Color colorOfBall
-    , Canvas canvas, int groundPos)
+    , Canvas canvas)
     {
+        if(xPos >= width)
+        xPos = xPos;
+        else
+            xPos = xPos;
         
-        groundPosition = groundPos;
+        if(yPos >= height)
+        yPos = yPos;
+        else
+            yPos = yPos;
+        
+        width = width;
+        height = height;
+        diameter = diameter;
+        color = colorOfBall;
+        canvas = canvas;
+        
     }
     
     
@@ -79,12 +98,12 @@ public class BoxBall
         // compute new position
         
         yPos += ySpeed;
-        xPos +=2;
+        xPos += xSpeed;
 
         // check if it has hit the ground
-        if(yPos >= (groundPosition - diameter) && ySpeed > 0) {
-            yPos = (int)(groundPosition - diameter);
+        if(yPos >= 0 && xPos >= 0) {
             ySpeed = -ySpeed + ballDegradation; 
+            xSpeed = -xSpeed + ballDegradation; 
         }
 
         // draw again at new position
