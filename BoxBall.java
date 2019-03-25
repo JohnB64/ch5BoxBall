@@ -11,45 +11,53 @@ public class BoxBall
     // instance variables - replace the example below with your own
     private int width;
     private int height;
-    private int xPos;
-    private int yPos;
+    private int xPosition;
+    private int yPosition;
       
-    private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;      
     private Canvas canvas;
     private int ySpeed;
     private int xSpeed;
+    private int top;
+    private int bottom;
+    private int leftSide;
+    private int rightSide;
 
     /**
      * Constructor for objects of class BoxBall
      * @param height height of box
      * @param width width of box
      * @param color color of ball
-     * @param xPos the x-position of the ball
-     * @param yPos the y-position of the ball
+     * @param xPosition the x-position of the ball
+     * @param yPosition the y-position of the ball
      * @param canvas the canvas
      * @param diameter the size of the ball
      */
-    public BoxBall(int width, int height, int xPos, int yPos, int diameter, Color colorOfBall
-    , Canvas canvas)
+    public BoxBall(int widthOfBox, int heightOfBox, int xPos, int yPos,
+    int diameterOfBall, Color colorOfBall, Canvas canvasForBoxBall,
+    int topOfBox, int bottomOfBox, int leftOfBox, int rightOfBox)
     {
-        if(xPos >= width)
-        xPos = xPos;
+        if(xPosition >= widthOfBox)
+        xPosition = xPos;
         else
-            xPos = xPos;
+            xPosition = xPos;
         
-        if(yPos >= height)
-        yPos = yPos;
+        if(yPosition >= heightOfBox)
+        yPosition = yPos;
         else
-            yPos = yPos;
+            yPosition = yPos;
         
-        width = width;
-        height = height;
-        diameter = diameter;
+        width = widthOfBox;
+        height = heightOfBox;
+        diameter = diameterOfBall;
         color = colorOfBall;
-        canvas = canvas;
+        canvas = canvasForBoxBall;
+        top = topOfBox;
+        bottom = bottomOfBox;
+        leftSide = leftOfBox;
+        rightSide = rightOfBox;
         
     }
     
@@ -60,7 +68,7 @@ public class BoxBall
     public void draw()
     {
         canvas.setForegroundColor(color);
-        canvas.fillCircle(xPos, yPos, diameter);
+        canvas.fillCircle(xPosition, yPosition, diameter);
     }
 
     /**
@@ -68,23 +76,23 @@ public class BoxBall
      **/
     public void erase()
     {
-        canvas.eraseCircle(xPos, yPos, diameter);
+        canvas.eraseCircle(xPosition, yPosition, diameter);
     }
     
     /**
      * return the horizontal position of this ball
      */
-    public int getXPos()
+    public int getXPosition()
     {
-        return xPos;
+        return xPosition;
     }
 
     /**
      * return the vertical position of this ball
      */
-    public int getYPos()
+    public int getYPosition()
     {
-        return yPos;
+        return yPosition;
     }
 
     /**
@@ -92,21 +100,21 @@ public class BoxBall
      **/
     public void move()
     {
-        // remove from canvas at the current position
+        
         erase();
             
-        // compute new position
         
-        yPos += ySpeed;
-        xPos += xSpeed;
+        
+        yPosition += ySpeed;
+        xPosition += xSpeed;
 
-        // check if it has hit the ground
-        if(yPos >= 0 && xPos >= 0) {
-            ySpeed = -ySpeed + ballDegradation; 
-            xSpeed = -xSpeed + ballDegradation; 
+        
+        if(yPosition >= 0 && xPosition >= 0) {
+            ySpeed = -ySpeed; 
+            xSpeed = -xSpeed; 
         }
 
-        // draw again at new position
+        
         draw();
     } 
 }

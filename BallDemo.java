@@ -23,6 +23,10 @@ public class BallDemo
     int height = 100;
     int xPos = 25;
     int yPos = 25;
+    private int top;
+    private int bottom;
+    private int leftSide;
+    private int rightSide;
     
     ArrayList<BoxBall> ball = new ArrayList<BoxBall>();
     /**
@@ -80,24 +84,33 @@ public class BallDemo
 
         myCanvas.setVisible(true);
 
+       // myCanvas.drawLine(leftSide, top, rightSide, bottom);
+        
+        BoxBall ball1 = new BoxBall(50, 50, 16, 12, 14, Color.BLACK,
+        myCanvas, 10, 10, 10, 10);
+        
+        ball1.draw();
+        
         boxBounce(numBalls);
 
         boolean finished =  false;
         
+        //int ball1;
         
         while(!finished) {
             myCanvas.wait(50);   
+            ball1.move();
             
-            for(BoxBall boxball : ball) {
-            
-          //  boxBall.move();
+           // for(BoxBall boxball : ball) 
             
             
-           // if(boxBall.getXPosition() >= height) {
-           //     finished = true;
-           // }
+            
+            
+        if(ball1.getXPosition() >= 550 || ball1.getXPosition() >= 550) {
+                finished = true;
+            }
         
-        }
+        
     }
 }
 
