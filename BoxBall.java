@@ -13,8 +13,7 @@ public class BoxBall
     private int height;
     private int xPos;
     private int yPos;
-    
-    private static final int GRAVITY = 3;  
+      
     private int ballDegradation = 2;
     private Ellipse2D.Double circle;
     private Color color;
@@ -34,15 +33,7 @@ public class BoxBall
         
         groundPosition = groundPos;
     }
-    /**
-     * Draws a rectangle with a certain number of balls inside.
-     * 
-     */
-    public void boxBounce(int numBalls) {
-        
-        
-        
-    }
+    
     
     /**
      * Draw this ball at its current position onto the canvas.
@@ -86,7 +77,7 @@ public class BoxBall
         erase();
             
         // compute new position
-        ySpeed += GRAVITY;
+        
         yPos += ySpeed;
         xPos +=2;
 
