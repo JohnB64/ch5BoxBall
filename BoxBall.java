@@ -18,12 +18,12 @@ public class BoxBall
     private Color color;
     private int diameter;      
     private Canvas canvas;
-    private int ySpeed;
-    private int xSpeed;
-    private int top;
-    private int bottom;
-    private int leftSide;
-    private int rightSide;
+    private int ySpeed = 4;
+    private int xSpeed = 7;
+    private int top = 0;
+    private int bottom = 500;
+    private int leftSide = 0;
+    private int rightSide = 600;
 
     /**
      * Constructor for objects of class BoxBall
@@ -35,29 +35,32 @@ public class BoxBall
      * @param canvas the canvas
      * @param diameter the size of the ball
      */
+    
+    // add these later
+    //int topOfBox, int bottomOfBox, int leftOfBox, int rightOfBox
     public BoxBall(int widthOfBox, int heightOfBox, int xPos, int yPos,
-    int diameterOfBall, Color colorOfBall, Canvas canvasForBoxBall,
-    int topOfBox, int bottomOfBox, int leftOfBox, int rightOfBox)
+    int diameterOfBall, Color colorOfBall, Canvas canvasForBoxBall
+    )
     {
-        if(xPosition >= widthOfBox)
-        xPosition = xPos;
-        else
-            xPosition = xPos;
+       // if(xPosition >= widthOfBox)
+       // xPosition = xPos;
+       // else
+       //     xPosition = xPos;
         
-        if(yPosition >= heightOfBox)
-        yPosition = yPos;
-        else
-            yPosition = yPos;
+       // if(yPosition >= heightOfBox)
+       // yPosition = yPos;
+       // else
+       //     yPosition = yPos;
         
         width = widthOfBox;
         height = heightOfBox;
         diameter = diameterOfBall;
         color = colorOfBall;
         canvas = canvasForBoxBall;
-        top = topOfBox;
-        bottom = bottomOfBox;
-        leftSide = leftOfBox;
-        rightSide = rightOfBox;
+       // top = topOfBox;
+       // bottom = bottomOfBox;
+       // leftSide = leftOfBox;
+       // rightSide = rightOfBox;
         
     }
     
@@ -105,14 +108,15 @@ public class BoxBall
             
         
         
-        yPosition += ySpeed;
-        xPosition += xSpeed;
+        yPosition = yPosition + ySpeed;
+        xPosition = xPosition + xSpeed;
 
-        
-        if(yPosition >= 0 && xPosition >= 0) {
-            ySpeed = -ySpeed; 
-            xSpeed = -xSpeed; 
+        if (xPosition + diameter > rightSide) {
+            xPosition = rightSide - diameter;
+            xSpeed = xSpeed * -1;
+            
         }
+       
 
         
         draw();

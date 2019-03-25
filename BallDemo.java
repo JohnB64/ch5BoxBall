@@ -19,14 +19,11 @@ public class BallDemo
     private Random random;
     
     
-    int width = 100;
-    int height = 100;
-    int xPos = 25;
-    int yPos = 25;
-    private int top;
-    private int bottom;
-    private int leftSide;
-    private int rightSide;
+    int width = 200;
+    int height = 200;
+    int xPos = 0;
+    int yPos = 0;
+    
     
     ArrayList<BoxBall> ball = new ArrayList<BoxBall>();
     /**
@@ -77,62 +74,56 @@ public class BallDemo
      /**
      * Simulate random balls bouncing in box.
      */
-    
-    public void bounceInBox(int numBalls)
+    // add int numBalls later
+    public void boxBounce()
     {
          
-
+        int top = 10;
+        int bottom = 10;
+        int leftSide = 10;
+        int rightSide = 10;
+    
+        //boxBounce(numBalls);
+        
         myCanvas.setVisible(true);
 
-       // myCanvas.drawLine(leftSide, top, rightSide, bottom);
+        BoxBall ball1 = new BoxBall(10, 10, 300, 10, 25, Color.BLACK,
+        myCanvas);
         
-        BoxBall ball1 = new BoxBall(50, 50, 16, 12, 14, Color.BLACK,
-        myCanvas, 10, 10, 10, 10);
         
         ball1.draw();
-        
-        boxBounce(numBalls);
-
-        boolean finished =  false;
-        
-        //int ball1;
-        
-        while(!finished) {
-            myCanvas.wait(50);   
+        while(true) {
+            
             ball1.move();
+            myCanvas.wait(50);
             
-           // for(BoxBall boxball : ball) 
-            
-            
-            
-            
-        if(ball1.getXPosition() >= 550 || ball1.getXPosition() >= 550) {
-                finished = true;
-            }
-        
-        
-    }
+        }
+
 }
+
 
     /**
      * Draws a rectangle with a certain number of balls inside.
      * 
      */
-    private void boxBounce(int numBalls) {
-        
-        myCanvas.drawRectangle(width, height, xPos, yPos);
-        for(int i = 0; i < numBalls; i++) {
-       // BoxBall boxball = new Boxball(xPos, yPos, width, height, myCanvas);
-       // ball.add(boxBall);
-      //  boxBall.draw();
-    }
-    }
     
-    private int randomPos() {
+    private void boxRectangle (int numBalls) {
         
-        int position = (int) (height);
+     myCanvas.drawRectangle(width, height, xPos, yPos);
         
-        return random.nextInt(position);
+        for(int i = 0; i < numBalls; i++) {
         
+              // ball1.add(boxBall);
+             //  boxBall.draw();
     }
-}
+    }
+
+}  
+  //  private int randomPos() {
+        
+  //      int position = (int) (height);
+        
+   //     return random.nextInt(position);
+        
+  //  }
+//}
