@@ -23,14 +23,16 @@ public class BallDemo
     int heightOfBox = 400;
     int widthOfCanvas = 400;
     int heightOfCanvas = 400;
-    int topWall = 1;
-    int bottomWall = 1;
-    int leftWall = 1;
-    int rightWall = 1;
+    int topWall = 10;
+    int bottomWall = 10;
+    int leftWall = 10;
+    int rightWall = 10;
     int xPos = 10;
     int yPos = 10;
-    
-    
+    int diameterOfBall = 25;
+    //int red = random.nextInt(256);
+    //int green = random.nextInt(256);
+    //int blue = random.nextInt(256);
     
     ArrayList<BoxBall> ball1 = new ArrayList<BoxBall>();
     
@@ -86,36 +88,56 @@ public class BallDemo
 
 
     /**
-     * Draws a rectangle with a certain number of balls inside.
+     * Draws a rectangle with a certain number of balls, 
+     * a certain color of ball, a certain size of ball and a certain position
+     * of the balls inside.
      * 
      */
     
     private void boxRectangle (int numBalls) {
         
-       myCanvas.drawRectangle(widthOfBox, heightOfBox, xPos, yPos);
+       
         
        for(int i = 0; i < numBalls; i++) {
               
             int xPos = randomPos();
             int yPos = randomPos();
+            int diameterOfBall = randomSize();
+            
+            myCanvas.drawRectangle(widthOfBox, heightOfBox, xPos, yPos);
+            
+           // Color randomColor = new Color(red, green, blue);
             
             BoxBall boxBall = new BoxBall(widthOfBox, heightOfBox, xPos, yPos, 
-            25, Color.RED,myCanvas, topWall, bottomWall, rightWall, leftWall);
+            diameterOfBall, /*randomColor*/ Color.CYAN ,myCanvas, topWall, bottomWall, rightWall, leftWall);
                ball1.add(boxBall);
                boxBall.draw();
             }
     }
-/**
- * Randomly positions the balls in the box via the x and y positions.
- * 
- */
+    /**
+       * Randomly positions the balls in the box via the x and y positions.
+         * 
+           */
   
-    private int randomPos() {
+        private int randomPos() {
         
         int position = heightOfBox;
         
         return random.nextInt(position);
         
+    }
+    /**
+       * Randomly sizes the balls in the box from anywhere
+       * from super tiny to the default size of the ball which is 25
+         * 
+           */
+        private int randomSize() {
+        
+        int size = diameterOfBall;
+
+        return random.nextInt(size);
+        
+    
     }
     
     
